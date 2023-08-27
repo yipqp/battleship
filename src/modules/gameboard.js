@@ -45,7 +45,7 @@ class Gameboard {
   receiveAttack(y, x) {
     let gridItem = this.#board[y][x];
     if (y > 9 || x > 9 || gridItem === "h") return;
-    if (gridItem === "o") {
+    if (gridItem === "e") {
       gridItem = "h";
     } else {
       // is a ship

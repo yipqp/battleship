@@ -1,0 +1,51 @@
+/* colors: https://tailwindcss.com/docs/customizing-colors */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --grid-color: #d1d5db;
+  --main-bgc: #0f172a;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  background-color: var(--main-bgc);
+  color: var(--grid-color);
+  font-family: "Nunito", sans-serif;
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+}
+
+main {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.board-container {
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  gap: 3px;
+}
+
+.columns {
+  width: 3.5vw;
+  aspect-ratio: 1 / 1;
+  border: 1px solid var(--grid-color);
+}

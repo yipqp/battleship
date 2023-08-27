@@ -3,6 +3,8 @@ class Gameboard {
 
   #shipList = [];
 
+  #invalidMoves = new Set();
+
   constructor() {
     for (let i = 0; i < 10; i++) {
       this.#board[i] = [];
@@ -16,30 +18,91 @@ class Gameboard {
     return this.#board;
   }
 
+  get shipList() {
+    return this.#shipList;
+  }
+
   placeShip(ship, y, x, isHorizontal) {
+    if (Gameboard.isOutOfBounds(ship, y, x, isHorizontal)) return false;
+
     const { length } = ship;
 
+    const shipCoords = [];
+
     for (let i = 0; i < length; i++) {
-      let shipPosition;
+      let newY;
+      let newX;
+
       if (isHorizontal) {
-        if (x + length > 10) return;
-        shipPosition = this.#board[y][x + i];
+        newY = y;
+        newX = x + i;
       } else {
-        if (y + length > 10) return;
-        shipPosition = this.#board[y + i][x];
+        newY = y + i;
+        newX = x;
       }
 
-      // grid is empty
-      if (shipPosition === "e") {
-        if (isHorizontal) {
-          this.#board[y][x + i] = ship;
-        } else {
-          this.#board[y + i][x] = ship;
-        }
-      }
+      const coords = [newY, newX];
+      shipCoords.push(coords);
     }
 
+    for (let i = 0; i < shipCoords.length; i++) {
+      if (this.isOccupied(shipCoords[i])) return false;
+    }
+
+    // all coords are valid
+    for (let i = 0; i < shipCoords.length; i++) {
+      const row = shipCoords[i][0];
+      const col = shipCoords[i][1];
+      this.#board[row][col] = ship;
+    }
+
+    this.markAsOccupied(shipCoords);
+
     this.#shipList.push(ship);
+
+    return true;
+  }
+
+  static isOutOfBounds(ship, y, x, isHorizontal) {
+    const { length } = ship;
+
+    if (isHorizontal) {
+      return x + length > 10;
+    }
+
+    return y + length > 10;
+  }
+
+  isOccupied(coords) {
+    const y = coords[0];
+    const x = coords[1];
+
+    const deltas = [
+      { row: -1, col: 0 },
+      { row: 1, col: 0 },
+      { row: 0, col: -1 },
+      { row: 0, col: 1 },
+      { row: -1, col: -1 },
+      { row: -1, col: 1 },
+      { row: 1, col: -1 },
+      { row: 1, col: 1 },
+    ];
+
+    for (let i = 0; i < deltas.length; i++) {
+      const newY = y + deltas[i].row;
+      const newX = x + deltas[i].col;
+      const newCoords = [newY, newX];
+      if (this.#invalidMoves.has(`${newCoords[0]} - ${newCoords[1]}`))
+        return true;
+    }
+
+    return false;
+  }
+
+  markAsOccupied(coords) {
+    for (let i = 0; i < coords.length; i++) {
+      this.#invalidMoves.add(`${coords[i][0]} - ${coords[i][1]}`);
+    }
   }
 
   receiveAttack(y, x) {

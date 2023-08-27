@@ -1,6 +1,12 @@
 import Gameboard from "../modules/gameboard";
 import Ship from "../modules/ship";
 
+let board;
+let ship2;
+let ship3;
+let ship4;
+let ship5;
+
 const makeBoard = () => {
   const boardArray = [];
   for (let i = 0; i < 10; i++) {
@@ -12,62 +18,82 @@ const makeBoard = () => {
   return boardArray;
 };
 
-test("can place ships", () => {
-  const boardArray = makeBoard();
+beforeEach(() => {
+  board = new Gameboard();
+  ship2 = new Ship(2);
+  ship3 = new Ship(3);
+  ship4 = new Ship(4);
+  ship5 = new Ship(5);
+});
 
-  const grid = new Gameboard();
-  const ship1 = new Ship(2);
+describe("ships are placed correctly", () => {
+  let pseudoBoard;
 
-  grid.placeShip(ship1, 0, 3, false);
-  boardArray[0][3] = ship1;
-  boardArray[1][3] = ship1;
+  beforeEach(() => {
+    pseudoBoard = makeBoard();
+  });
 
-  const ship2 = new Ship(4);
-  grid.placeShip(ship2, 3, 2, true);
-  boardArray[3][2] = ship2;
-  boardArray[3][3] = ship2;
-  boardArray[3][4] = ship2;
-  boardArray[3][5] = ship2;
+  test("all ships in bounds", () => {
+    board.placeShip(ship4, 9, 0, false);
+    board.placeShip(ship3, 9, 9, false);
+    board.placeShip(ship2, 0, 9, true);
+    board.placeShip(ship5, 9, 9, true);
+    board.placeShip(ship4, 0, 6, true); // valid
+    board.placeShip(ship3, 7, 0, true); // valid
 
-  const ship3 = new Ship(2);
-  grid.placeShip(ship3, 0, 8, true);
-  boardArray[0][8] = ship3;
-  boardArray[0][9] = ship3;
+    pseudoBoard[0][6] = ship4;
+    pseudoBoard[0][7] = ship4;
+    pseudoBoard[0][8] = ship4;
+    pseudoBoard[0][9] = ship4;
 
-  // (ship, x, y, horizontal)
-  const ship4 = new Ship(2);
-  grid.placeShip(ship4, 9, 0, false);
-  grid.placeShip(ship4, 0, 9, true);
+    pseudoBoard[7][0] = ship3;
+    pseudoBoard[7][1] = ship3;
+    pseudoBoard[7][2] = ship3;
 
-  expect(grid.board).toEqual(boardArray);
+    expect(board.board).toEqual(pseudoBoard);
+  });
+
+  test("no adjacent ships", () => {
+    board.placeShip(ship2, 0, 0, true); // valid
+    board.placeShip(ship3, 1, 0, true);
+    board.placeShip(ship3, 2, 0, true); // valid
+    board.placeShip(ship4, 0, 2, false);
+    board.placeShip(ship4, 0, 4, false); // valid
+
+    pseudoBoard[0][0] = ship2;
+    pseudoBoard[0][1] = ship2;
+
+    pseudoBoard[2][0] = ship3;
+    pseudoBoard[2][1] = ship3;
+    pseudoBoard[2][2] = ship3;
+
+    pseudoBoard[0][4] = ship4;
+    pseudoBoard[1][4] = ship4;
+    pseudoBoard[2][4] = ship4;
+    pseudoBoard[3][4] = ship4;
+
+    expect(board.board).toEqual(pseudoBoard);
+  });
 });
 
 test("can attack ship", () => {
-  const grid = new Gameboard();
-  const ship = new Ship(4);
-  grid.placeShip(ship, 3, 3, false);
-  grid.receiveAttack(3, 3);
-  const ship2 = new Ship(1);
-  grid.placeShip(ship2, 0, 0, true);
-  grid.receiveAttack(0, 0);
-  grid.receiveAttack(0, 0);
-  expect(ship.numTimesHit).toBe(1);
-  expect(ship2.numTimesHit).toBe(1);
+  board.placeShip(ship3, 3, 3, false);
+  board.receiveAttack(3, 4);
+  board.receiveAttack(3, 3);
+  board.placeShip(ship2, 0, 0, true);
+  board.receiveAttack(0, 0);
+  board.receiveAttack(0, 1);
+  expect(ship3.numTimesHit).toBe(1);
+  expect(ship2.numTimesHit).toBe(2);
   expect(ship2.isSunk()).toBe(true);
 });
 
 test("check win con", () => {
-  const grid = new Gameboard();
-  const ship2 = new Ship(1);
-  grid.placeShip(ship2, 0, 0, true);
-  grid.receiveAttack(0, 0);
-  grid.receiveAttack(0, 0);
-  expect(grid.allSunk()).toBe(true);
-
-  const grid2 = new Gameboard();
-  const ship3 = new Ship(2);
-  const ship4 = new Ship(3);
-  grid2.placeShip(ship3, 0, 0, true);
-  grid2.placeShip(ship4, 5, 5, false);
-  expect(grid2.allSunk()).toBe(false);
+  board.placeShip(ship2, 0, 0, true);
+  expect(board.allSunk()).toBe(false);
+  board.receiveAttack(0, 0);
+  board.receiveAttack(1, 0);
+  expect(board.allSunk()).toBe(false);
+  board.receiveAttack(0, 1);
+  expect(board.allSunk()).toBe(true);
 });

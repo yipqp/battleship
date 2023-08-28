@@ -1,7 +1,12 @@
 class Player {
   #possMoves = [];
 
-  constructor() {
+  #pastMoves = new Set();
+
+  #name;
+
+  constructor(name = "user") {
+    this.#name = name;
     for (let i = 0; i < 10; i++) {
       for (let j = 0; j < 10; j++) {
         this.#possMoves.push([i, j]);
@@ -13,6 +18,10 @@ class Player {
     return this.#possMoves;
   }
 
+  toString() {
+    return this.#name;
+  }
+
   getRandomMove() {
     const max = this.#possMoves.length;
     if (max < 1) return false;
@@ -20,6 +29,14 @@ class Player {
     const rndmMove = this.#possMoves[rndmIndex];
     this.#possMoves.splice(rndmIndex, 1);
     return rndmMove;
+  }
+
+  addPastMoves(row, col) {
+    this.#pastMoves.add(`${row} - ${col}`);
+  }
+
+  isValidMove(row, col) {
+    return !this.#pastMoves.has(`${row} - ${col}`);
   }
 }
 

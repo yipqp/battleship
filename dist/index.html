@@ -3,8 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="./index.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -16,209 +14,209 @@
   <body>
     <header><h1>battleship</h1></header>
     <main>
-      <div class="board-container">
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
+      <div class="board-container" id="user-board">
+        <div data-row="0" data-col="0" class="cell"></div>
+        <div data-row="0" data-col="1" class="cell"></div>
+        <div data-row="0" data-col="2" class="cell"></div>
+        <div data-row="0" data-col="3" class="cell"></div>
+        <div data-row="0" data-col="4" class="cell"></div>
+        <div data-row="0" data-col="5" class="cell"></div>
+        <div data-row="0" data-col="6" class="cell"></div>
+        <div data-row="0" data-col="7" class="cell"></div>
+        <div data-row="0" data-col="8" class="cell"></div>
+        <div data-row="0" data-col="9" class="cell"></div>
+        <div data-row="1" data-col="0" class="cell"></div>
+        <div data-row="1" data-col="1" class="cell"></div>
+        <div data-row="1" data-col="2" class="cell"></div>
+        <div data-row="1" data-col="3" class="cell"></div>
+        <div data-row="1" data-col="4" class="cell"></div>
+        <div data-row="1" data-col="5" class="cell"></div>
+        <div data-row="1" data-col="6" class="cell"></div>
+        <div data-row="1" data-col="7" class="cell"></div>
+        <div data-row="1" data-col="8" class="cell"></div>
+        <div data-row="1" data-col="9" class="cell"></div>
+        <div data-row="2" data-col="0" class="cell"></div>
+        <div data-row="2" data-col="1" class="cell"></div>
+        <div data-row="2" data-col="2" class="cell"></div>
+        <div data-row="2" data-col="3" class="cell"></div>
+        <div data-row="2" data-col="4" class="cell"></div>
+        <div data-row="2" data-col="5" class="cell"></div>
+        <div data-row="2" data-col="6" class="cell"></div>
+        <div data-row="2" data-col="7" class="cell"></div>
+        <div data-row="2" data-col="8" class="cell"></div>
+        <div data-row="2" data-col="9" class="cell"></div>
+        <div data-row="3" data-col="0" class="cell"></div>
+        <div data-row="3" data-col="1" class="cell"></div>
+        <div data-row="3" data-col="2" class="cell"></div>
+        <div data-row="3" data-col="3" class="cell"></div>
+        <div data-row="3" data-col="4" class="cell"></div>
+        <div data-row="3" data-col="5" class="cell"></div>
+        <div data-row="3" data-col="6" class="cell"></div>
+        <div data-row="3" data-col="7" class="cell"></div>
+        <div data-row="3" data-col="8" class="cell"></div>
+        <div data-row="3" data-col="9" class="cell"></div>
+        <div data-row="4" data-col="0" class="cell"></div>
+        <div data-row="4" data-col="1" class="cell"></div>
+        <div data-row="4" data-col="2" class="cell"></div>
+        <div data-row="4" data-col="3" class="cell"></div>
+        <div data-row="4" data-col="4" class="cell"></div>
+        <div data-row="4" data-col="5" class="cell"></div>
+        <div data-row="4" data-col="6" class="cell"></div>
+        <div data-row="4" data-col="7" class="cell"></div>
+        <div data-row="4" data-col="8" class="cell"></div>
+        <div data-row="4" data-col="9" class="cell"></div>
+        <div data-row="5" data-col="0" class="cell"></div>
+        <div data-row="5" data-col="1" class="cell"></div>
+        <div data-row="5" data-col="2" class="cell"></div>
+        <div data-row="5" data-col="3" class="cell"></div>
+        <div data-row="5" data-col="4" class="cell"></div>
+        <div data-row="5" data-col="5" class="cell"></div>
+        <div data-row="5" data-col="6" class="cell"></div>
+        <div data-row="5" data-col="7" class="cell"></div>
+        <div data-row="5" data-col="8" class="cell"></div>
+        <div data-row="5" data-col="9" class="cell"></div>
+        <div data-row="6" data-col="0" class="cell"></div>
+        <div data-row="6" data-col="1" class="cell"></div>
+        <div data-row="6" data-col="2" class="cell"></div>
+        <div data-row="6" data-col="3" class="cell"></div>
+        <div data-row="6" data-col="4" class="cell"></div>
+        <div data-row="6" data-col="5" class="cell"></div>
+        <div data-row="6" data-col="6" class="cell"></div>
+        <div data-row="6" data-col="7" class="cell"></div>
+        <div data-row="6" data-col="8" class="cell"></div>
+        <div data-row="6" data-col="9" class="cell"></div>
+        <div data-row="7" data-col="0" class="cell"></div>
+        <div data-row="7" data-col="1" class="cell"></div>
+        <div data-row="7" data-col="2" class="cell"></div>
+        <div data-row="7" data-col="3" class="cell"></div>
+        <div data-row="7" data-col="4" class="cell"></div>
+        <div data-row="7" data-col="5" class="cell"></div>
+        <div data-row="7" data-col="6" class="cell"></div>
+        <div data-row="7" data-col="7" class="cell"></div>
+        <div data-row="7" data-col="8" class="cell"></div>
+        <div data-row="7" data-col="9" class="cell"></div>
+        <div data-row="8" data-col="0" class="cell"></div>
+        <div data-row="8" data-col="1" class="cell"></div>
+        <div data-row="8" data-col="2" class="cell"></div>
+        <div data-row="8" data-col="3" class="cell"></div>
+        <div data-row="8" data-col="4" class="cell"></div>
+        <div data-row="8" data-col="5" class="cell"></div>
+        <div data-row="8" data-col="6" class="cell"></div>
+        <div data-row="8" data-col="7" class="cell"></div>
+        <div data-row="8" data-col="8" class="cell"></div>
+        <div data-row="8" data-col="9" class="cell"></div>
+        <div data-row="9" data-col="0" class="cell"></div>
+        <div data-row="9" data-col="1" class="cell"></div>
+        <div data-row="9" data-col="2" class="cell"></div>
+        <div data-row="9" data-col="3" class="cell"></div>
+        <div data-row="9" data-col="4" class="cell"></div>
+        <div data-row="9" data-col="5" class="cell"></div>
+        <div data-row="9" data-col="6" class="cell"></div>
+        <div data-row="9" data-col="7" class="cell"></div>
+        <div data-row="9" data-col="8" class="cell"></div>
+        <div data-row="9" data-col="9" class="cell"></div>
       </div>
-      <div class="board-container">
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
-        <div class="columns"></div>
+      <div class="board-container" id="comp-board">
+        <div data-row="0" data-col="0" class="cell"></div>
+        <div data-row="0" data-col="1" class="cell"></div>
+        <div data-row="0" data-col="2" class="cell"></div>
+        <div data-row="0" data-col="3" class="cell"></div>
+        <div data-row="0" data-col="4" class="cell"></div>
+        <div data-row="0" data-col="5" class="cell"></div>
+        <div data-row="0" data-col="6" class="cell"></div>
+        <div data-row="0" data-col="7" class="cell"></div>
+        <div data-row="0" data-col="8" class="cell"></div>
+        <div data-row="0" data-col="9" class="cell"></div>
+        <div data-row="1" data-col="0" class="cell"></div>
+        <div data-row="1" data-col="1" class="cell"></div>
+        <div data-row="1" data-col="2" class="cell"></div>
+        <div data-row="1" data-col="3" class="cell"></div>
+        <div data-row="1" data-col="4" class="cell"></div>
+        <div data-row="1" data-col="5" class="cell"></div>
+        <div data-row="1" data-col="6" class="cell"></div>
+        <div data-row="1" data-col="7" class="cell"></div>
+        <div data-row="1" data-col="8" class="cell"></div>
+        <div data-row="1" data-col="9" class="cell"></div>
+        <div data-row="2" data-col="0" class="cell"></div>
+        <div data-row="2" data-col="1" class="cell"></div>
+        <div data-row="2" data-col="2" class="cell"></div>
+        <div data-row="2" data-col="3" class="cell"></div>
+        <div data-row="2" data-col="4" class="cell"></div>
+        <div data-row="2" data-col="5" class="cell"></div>
+        <div data-row="2" data-col="6" class="cell"></div>
+        <div data-row="2" data-col="7" class="cell"></div>
+        <div data-row="2" data-col="8" class="cell"></div>
+        <div data-row="2" data-col="9" class="cell"></div>
+        <div data-row="3" data-col="0" class="cell"></div>
+        <div data-row="3" data-col="1" class="cell"></div>
+        <div data-row="3" data-col="2" class="cell"></div>
+        <div data-row="3" data-col="3" class="cell"></div>
+        <div data-row="3" data-col="4" class="cell"></div>
+        <div data-row="3" data-col="5" class="cell"></div>
+        <div data-row="3" data-col="6" class="cell"></div>
+        <div data-row="3" data-col="7" class="cell"></div>
+        <div data-row="3" data-col="8" class="cell"></div>
+        <div data-row="3" data-col="9" class="cell"></div>
+        <div data-row="4" data-col="0" class="cell"></div>
+        <div data-row="4" data-col="1" class="cell"></div>
+        <div data-row="4" data-col="2" class="cell"></div>
+        <div data-row="4" data-col="3" class="cell"></div>
+        <div data-row="4" data-col="4" class="cell"></div>
+        <div data-row="4" data-col="5" class="cell"></div>
+        <div data-row="4" data-col="6" class="cell"></div>
+        <div data-row="4" data-col="7" class="cell"></div>
+        <div data-row="4" data-col="8" class="cell"></div>
+        <div data-row="4" data-col="9" class="cell"></div>
+        <div data-row="5" data-col="0" class="cell"></div>
+        <div data-row="5" data-col="1" class="cell"></div>
+        <div data-row="5" data-col="2" class="cell"></div>
+        <div data-row="5" data-col="3" class="cell"></div>
+        <div data-row="5" data-col="4" class="cell"></div>
+        <div data-row="5" data-col="5" class="cell"></div>
+        <div data-row="5" data-col="6" class="cell"></div>
+        <div data-row="5" data-col="7" class="cell"></div>
+        <div data-row="5" data-col="8" class="cell"></div>
+        <div data-row="5" data-col="9" class="cell"></div>
+        <div data-row="6" data-col="0" class="cell"></div>
+        <div data-row="6" data-col="1" class="cell"></div>
+        <div data-row="6" data-col="2" class="cell"></div>
+        <div data-row="6" data-col="3" class="cell"></div>
+        <div data-row="6" data-col="4" class="cell"></div>
+        <div data-row="6" data-col="5" class="cell"></div>
+        <div data-row="6" data-col="6" class="cell"></div>
+        <div data-row="6" data-col="7" class="cell"></div>
+        <div data-row="6" data-col="8" class="cell"></div>
+        <div data-row="6" data-col="9" class="cell"></div>
+        <div data-row="7" data-col="0" class="cell"></div>
+        <div data-row="7" data-col="1" class="cell"></div>
+        <div data-row="7" data-col="2" class="cell"></div>
+        <div data-row="7" data-col="3" class="cell"></div>
+        <div data-row="7" data-col="4" class="cell"></div>
+        <div data-row="7" data-col="5" class="cell"></div>
+        <div data-row="7" data-col="6" class="cell"></div>
+        <div data-row="7" data-col="7" class="cell"></div>
+        <div data-row="7" data-col="8" class="cell"></div>
+        <div data-row="7" data-col="9" class="cell"></div>
+        <div data-row="8" data-col="0" class="cell"></div>
+        <div data-row="8" data-col="1" class="cell"></div>
+        <div data-row="8" data-col="2" class="cell"></div>
+        <div data-row="8" data-col="3" class="cell"></div>
+        <div data-row="8" data-col="4" class="cell"></div>
+        <div data-row="8" data-col="5" class="cell"></div>
+        <div data-row="8" data-col="6" class="cell"></div>
+        <div data-row="8" data-col="7" class="cell"></div>
+        <div data-row="8" data-col="8" class="cell"></div>
+        <div data-row="8" data-col="9" class="cell"></div>
+        <div data-row="9" data-col="0" class="cell"></div>
+        <div data-row="9" data-col="1" class="cell"></div>
+        <div data-row="9" data-col="2" class="cell"></div>
+        <div data-row="9" data-col="3" class="cell"></div>
+        <div data-row="9" data-col="4" class="cell"></div>
+        <div data-row="9" data-col="5" class="cell"></div>
+        <div data-row="9" data-col="6" class="cell"></div>
+        <div data-row="9" data-col="7" class="cell"></div>
+        <div data-row="9" data-col="8" class="cell"></div>
+        <div data-row="9" data-col="9" class="cell"></div>
       </div>
     </main>
     <footer></footer>

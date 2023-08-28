@@ -2,11 +2,13 @@ import Gameboard from "./gameboard";
 import Player from "./player";
 import Ship from "./ship";
 
-const user = new Player();
+const user = new Player("player");
 const comp = new Player("computer");
 const userBoard = new Gameboard("user-board");
 const compBoard = new Gameboard("comp-board");
 
+const endMsg = document.querySelector(".end-msg");
+const userBoardContainer = document.querySelector("#user-board");
 const compBoardContainer = document.querySelector("#comp-board");
 compBoard.randomPlaceAllShips();
 userBoard.randomPlaceAllShips();
@@ -16,7 +18,9 @@ let gameOver = false;
 let winner;
 
 function displayWin() {
-  console.log(`${winner} won!`);
+  endMsg.textContent = `${winner} won!`;
+  userBoardContainer.style.filter = "opacity(0.7)";
+  compBoardContainer.style.filter = "opacity(0.7)";
 }
 
 function checkGameEnd() {
@@ -84,6 +88,8 @@ compBoardContainer.addEventListener("click", (e) => {
 function startGame() {
   userTurn = true;
   gameOver = false;
+
+  endMsg.textContent = "";
 
   renderShips(userBoard);
 }

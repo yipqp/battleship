@@ -24,19 +24,19 @@ body {
   font-family: "Nunito", sans-serif;
   display: flex;
   flex-flow: column;
+  position: relative;
   height: 100%;
 }
 
 header {
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-flow: column;
   margin: 5%;
 }
 
 main {
   display: flex;
-  flex: 1;
+  flex: 2;
   align-items: center;
   justify-content: space-evenly;
 }
@@ -68,4 +68,36 @@ main {
 
 .hitEmpty {
   background-color: var(--hit-empty-bgc);
+}
+
+.line {
+  background-color: var(--grid-bgc);
+  width: 9em;
+  height: 3px;
+}
+
+.end-msg {
+  position: absolute;
+  font-size: 24px;
+  top: 19%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@media only screen and (max-width: 992px) {
+  main {
+    flex-direction: column;
+  }
+
+  .end-msg {
+    font-size: 20px;
+    top: 11%;
+  }
+
+  .cell {
+    width: 3vh;
+  }
 }
